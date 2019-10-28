@@ -12,7 +12,9 @@ class CitySearcher extends Form {
         city: joi.string().required().label("City")
     }
 
-    doSumbit = () => { }
+    doSubmit = () => {
+        console.log("submit")
+    }
 
     render() {
         return (
