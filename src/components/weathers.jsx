@@ -4,6 +4,7 @@ import Card from './common/card';
 import apiUrl from "../config.json";
 import CitySearcher from './citySearcher';
 import cities from '../city.list.json';
+import { toast } from 'react-toastify';
 
 
 class Weathers extends Component {
@@ -11,13 +12,15 @@ class Weathers extends Component {
         weather: {}
     }
 
+
     handleSearchCity = ({ city: cityName, country: countryName }) => {
 
 
         const searchResults = cities
             .filter(c => c.name.toLowerCase() === cityName.toLowerCase())
             .filter(c => c.country.toLowerCase() === countryName.toLowerCase());
-
+        if (searchResults.length === 0)
+            toast.error("Invalid City");
         console.log(searchResults);
 
 
