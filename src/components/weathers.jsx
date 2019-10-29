@@ -21,7 +21,7 @@ class Weathers extends Component {
         const { data } = await http.get(`${apiUrl}/data/2.5/weather?id=${id}&appid=${apiKey}`);
         const weathers = [...this.state.weathers, data];
         this.setState({ weathers });
-        console.log(this.state.weathers);
+
     }
 
 
@@ -37,7 +37,7 @@ class Weathers extends Component {
         const targetCities = [...this.state.targetCities, ...searchResults];
 
         this.setState({ targetCities }, () => { this.getWeatherData(this.state.targetCities) });
-
+        console.log(this.state.targetCities);
 
 
 
