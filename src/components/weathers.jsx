@@ -15,12 +15,27 @@ class Weathers extends Component {
 
 
 
+    componentDidUpdate(prevProps, prevState) {
 
+    }
     getWeatherData = async cities => {
-        const id = cities[0].id;
+        const id = cities[cities.length - 1].id;
         const { data } = await http.get(`${apiUrl}/data/2.5/weather?id=${id}&appid=${apiKey}`);
         const weathers = [...this.state.weathers, data];
         this.setState({ weathers });
+
+    }
+
+    testDuplicateCity = searchResults => {
+
+        if (this.state.targetCities.length !== 0) {
+            if (this.state.targetCities.find(city => city.id === searchResults[0].id)) {
+                toast.error("City has been addeds");
+                return false;
+            }
+        }
+
+        return true;
 
     }
 
@@ -31,13 +46,23 @@ class Weathers extends Component {
         const searchResults = cities
             .filter(c => c.name.toLowerCase() === cityName.toLowerCase())
             .filter(c => c.country.toLowerCase() === countryName.toLowerCase());
-        if (searchResults.length === 0)
-            toast.error("Invalid City");
 
+        if (searchResults.length === 0) {//did not find the city in the list
+            toast.error("Invalid City");
+            return;
+        }
+
+
+        if (!this.testDuplicateCity(searchResults)) return;
+
+        console.log(this.state.targetCities);
         const targetCities = [...this.state.targetCities, ...searchResults];
 
-        this.setState({ targetCities }, () => { this.getWeatherData(this.state.targetCities) });
-        console.log(this.state.targetCities);
+        this.setState({ targetCities }, () => {
+            this.getWeatherData(this.state.targetCities)
+
+        });
+
 
 
 
@@ -47,15 +72,19 @@ class Weathers extends Component {
     }
 
     render() {
-        // const { name: cityName, main: { temp } } = this.state.weather;
+
         return (
             <div>
                 <CitySearcher
                     onSearch={this.handleSearchCity}
                 />
-                <Card
-
-                />
+                {this.state.weathers.map(weather =>
+                    <Card
+                        key={weather.id}
+                        cityName={weather.name}
+                        temp={weather.main.temp}
+                    />
+                )}
             </div>
         );
     }
