@@ -11,7 +11,7 @@ function App() {
     <div>
       <ToastContainer />
       <NavBar />
-      <div className="container-fluid">
+      <div className="container">
         <Weather />
       </div>
     </div>

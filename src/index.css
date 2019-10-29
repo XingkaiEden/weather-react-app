@@ -14,7 +14,7 @@ code {
 }
 
 .card{
-  width: 25rem;
+  width: 15rem;
   margin-top: 2em;
 }
 
@@ -25,3 +25,4 @@ code {
 .center{
   text-align: center;
 }
+
