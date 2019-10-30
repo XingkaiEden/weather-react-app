@@ -6,6 +6,7 @@ class NavBar extends Component {
     state = {}
     render() {
         return (
+
             <nav className="navbar navbar-expand-sm navbar-light">
                 <Link className="navbar-brand" to="/">Eden's WeatherChecker</Link>
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"

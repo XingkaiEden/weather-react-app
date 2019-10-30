@@ -74,20 +74,19 @@ class Weathers extends Component {
                     onSearch={this.handleSearchCity}
                     title={"Current Weather"}
                 />
-                <div className="box">
-                    <div className="container">
-                        <div className="row">
-                            {this.state.weathers.map(weather =>
-                                <Card
-                                    key={weather.id}
-                                    weather={weather}
-                                    onDelete={this.handleDelete}
-                                />
+                {this.state.weathers.map(weather =>
+                    <Card
+                        key={weather.id}
+                        // cityName={weather.name}
+                        // temp={weather.main.temp}
+                        // mintemp={weather.main.temp_min}
+                        // maxtemp={weather.main.temp_max}
+                        // weatherIcons={weather.weather}
+                        weather={weather}
+                        onDelete={this.handleDelete}
+                    />
 
-                            )}
-                        </div>
-                    </div>
-                </div>
+                )}
 
             </div>
         );

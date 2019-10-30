@@ -1,5 +1,7 @@
 body {
   margin: 0;
+   
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -14,7 +16,7 @@ code {
 }
 
 .card{
-  width: 15rem;
+  width: 25rem;
   margin-top: 2em;
 }
 
@@ -25,4 +27,11 @@ code {
 .center{
   text-align: center;
 }
+<<<<<<< HEAD
+html{
+  height: 100%;
+  margin: 0;
+}
 
+=======
+>>>>>>> parent of ebc8d38... fix layout
