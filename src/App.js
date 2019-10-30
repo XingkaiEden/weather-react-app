@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Forecast from './components/forecast';
 
 
+<<<<<<< HEAD
 class App extends Component {
   state = {
     weathers: [],
@@ -102,6 +103,15 @@ class App extends Component {
           </Switch>
         </div>
 
+=======
+function App() {
+  return (
+    <div>
+      <ToastContainer />
+      <NavBar />
+      <div className="container-fluid">
+        <Weather />
+>>>>>>> parent of ebc8d38... fix layout
       </div>
     );
   }
