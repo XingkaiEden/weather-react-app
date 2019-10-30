@@ -66,12 +66,13 @@ class Form extends Component {
 
             className="btn btn-primary">{label}</button>);
     };
-    renderInput(name, label, type = "text") {
+    renderInput(name, label, smallLabel, type = "text") {
         const { data, error } = this.state;
         return (<Input
             type={type}
             name={name}
             label={label}
+            smallLabel={smallLabel}
             value={data[name]}
             onChange={this.handleChange}
             error={error[name]}

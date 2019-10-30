@@ -19,12 +19,13 @@ class CitySearcher extends Form {
     }
 
     render() {
+        const { title } = this.props;
         return (
             <div>
-                <h1>Please Enter the City's Name and Country's Code</h1>
+                <h1 className="center">{title}</h1>
                 <form onSubmit={this.handleSubmit}>
-                    {this.renderInput("city", "City")}
-                    {this.renderInput("country", "Country")}
+                    {this.renderInput("city", "City", "Please Enter City's name")}
+                    {this.renderInput("country", "Country Code", "Please Enter Country's Code")}
                     {this.renderButton("Search")}
                 </form>
             </div>
