@@ -72,6 +72,7 @@ class Weathers extends Component {
             <div>
                 <CitySearcher
                     onSearch={this.handleSearchCity}
+                    title={"Current Weather"}
                 />
                 <div className="box">
                     <div className="container">

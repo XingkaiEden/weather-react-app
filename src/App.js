@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './components/common/navBar';
 import Weather from './components/weathers';
 import { ToastContainer } from 'react-toastify';
+import { Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,7 +13,9 @@ function App() {
       <ToastContainer />
       <NavBar />
       <div className="container">
-        <Weather />
+        <Switch>
+          <Route path="/currentweather" component={Weather} />
+        </Switch>
       </div>
     </div>
   );
